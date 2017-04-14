@@ -37,7 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             return
         }
         
-        ParseClient.sharedInstance().getStudentsFromParse() { (students, errorString) in
+        ParseClient.sharedInstance().getStudentsFromParse(limit: 100) { (students, errorString) in
             
             // GUARD: was there an error?
             guard errorString != nil else {
@@ -67,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func addAnnotations() {
-        for student in ParseClient.sharedInstance().students! {
+        for student in ParseStudentModel.students {
             if let long = student.longitude, let lat = student.latitude, let firstName = student.firstName, let lastName = student.lastName {
                 let lat = CLLocationDegrees(lat)
                 let long = CLLocationDegrees(long)

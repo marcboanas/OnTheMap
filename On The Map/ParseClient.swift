@@ -14,7 +14,6 @@ class ParseClient: NSObject {
     
     // Shared session
     var session = URLSession.shared
-    var students: [Student]? = nil
     
     // MARK: Inializers
     
@@ -28,6 +27,7 @@ class ParseClient: NSObject {
         
         // 1. Build the URL and configure the Request
         let url = parseURLFromParameters(parameters, withPathExtension: method)
+        print(url.absoluteString)
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue(ParameterValues.ParseApplicationID, forHTTPHeaderField: ParameterKeys.ParseApplicationID)
@@ -141,6 +141,7 @@ class ParseClient: NSObject {
         components.scheme = ParseClient.Constants.ApiScheme
         components.host = ParseClient.Constants.ApiHost
         components.path = ParseClient.Constants.ApiPath + (withPathExtension ?? "")
+        components.queryItems = [URLQueryItem]()
         
         if let parameters = parameters {
             for (key, value) in parameters {

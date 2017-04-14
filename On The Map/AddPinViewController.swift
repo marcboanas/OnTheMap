@@ -147,10 +147,17 @@ class AddPinViewController: UIViewController, MKMapViewDelegate, UITextFieldDele
         
         showActivityIndicator(uiView: mapViewContainer)
         
+        // GUARD: Check location is not empty?
+        guard !(locationTextField.text?.isEmpty)! && !(mediaURLTextField.text?.isEmpty)!  else {
+            showAlert(errorMessage: "Please provide a location and url!")
+            removeActivityIndicator(uiView: formView)
+            return
+        }
+        
         ParseClient.sharedInstance().postStudentLocationToParse(student) { (results, error) in
             if error != nil {
                 DispatchQueue.main.async {
-                    self.showAlert(errorMessage: "Something went wrong: \(String(describing: error))")
+                    self.showAlert(errorMessage: error)
                     self.removeActivityIndicator(uiView: self.mapViewContainer)
                 }
             } else {
@@ -160,6 +167,4 @@ class AddPinViewController: UIViewController, MKMapViewDelegate, UITextFieldDele
             }
         }
     }
-    
-    
 }

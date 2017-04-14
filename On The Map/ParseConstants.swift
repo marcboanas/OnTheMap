@@ -18,6 +18,7 @@ extension ParseClient {
     struct ParameterKeys {
         static let ParseApplicationID:String = "X-Parse-Application-Id"
         static let ParseRESTAPIKey:String = "X-Parse-REST-API-Key"
+        static let StudentLimit:String = "limit"
     }
     
     struct ParameterValues {
@@ -25,6 +26,7 @@ extension ParseClient {
         static let ParseRESTAPIKey:String = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     }
     
+    // Set static limit of 100 students
     struct Methods {
         static let StudentLocation: String = "/StudentLocation"
     }

@@ -17,13 +17,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     // MARK: Properties
-    
-    var students: [Student] = [Student]()
+
     let reuseID = "StudentCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDatanadReloadTable()
     }
     
     // Obtain student data from parse then update table
@@ -38,7 +36,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        ParseClient.sharedInstance().getStudentsFromParse { (students, errorString) in
+        ParseClient.sharedInstance().getStudentsFromParse(limit: 100) { (students, errorString) in
             
             // GUARD: was there an error?
             guard errorString != nil else {
@@ -50,8 +48,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
 
             print("successfully obtained students from Parse (List)")
-            self.students = students!
-            print(students!.count)
+            print("Number of students returned: \(students!.count)")
             
             // Update the UI on the main queue
             DispatchQueue.main.async {
@@ -79,12 +76,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return students.count
+        return ParseStudentModel.students.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as UITableViewCell
-        let student = students[indexPath.row]
+        let student = ParseStudentModel.students[indexPath.row]
         
         if let firstName = student.firstName, let lastName = student.lastName {
             let fullName = "\(firstName) \(lastName)"
@@ -115,7 +112,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let app = UIApplication.shared
-        if let toOpen = students[indexPath.row].mediaURL {
+        if let toOpen = ParseStudentModel.students[indexPath.row].mediaURL {
             if let url = URL(string: toOpen) {
                 app.open(url, options: [:], completionHandler: nil)
             }

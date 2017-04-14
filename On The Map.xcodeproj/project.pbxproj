@@ -19,6 +19,7 @@
 		03088C721E92E57700BA03D2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03088C6F1E92E57500BA03D2 /* FBSDKCoreKit.framework */; };
 		03088C731E92E57700BA03D2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03088C701E92E57600BA03D2 /* FBSDKLoginKit.framework */; };
 		03088C741E92E57700BA03D2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03088C711E92E57600BA03D2 /* Bolts.framework */; };
+		031FFA8B1EA17E7F005B3CD6 /* ParseStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FFA8A1EA17E7F005B3CD6 /* ParseStudentModel.swift */; };
 		0333A8A01EA0DC2300D0236C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333A89F1EA0DC2000D0236C /* CustomButton.swift */; };
 		03A137CF1E9CDD7700B8DDA6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A137CE1E9CDD7600B8DDA6 /* Reachability.swift */; };
 		03A137D11E9CF2BA00B8DDA6 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A137D01E9CF2BA00B8DDA6 /* AddPinViewController.swift */; };
@@ -44,6 +45,7 @@
 		03088C6F1E92E57500BA03D2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		03088C701E92E57600BA03D2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		03088C711E92E57600BA03D2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		031FFA8A1EA17E7F005B3CD6 /* ParseStudentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseStudentModel.swift; sourceTree = "<group>"; };
 		0333A89F1EA0DC2000D0236C /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		03A137CE1E9CDD7600B8DDA6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		03A137D01E9CF2BA00B8DDA6 /* AddPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				03088C631E8EE00200BA03D2 /* ParseConstants.swift */,
 				03088C651E8EFF9800BA03D2 /* ParseConvenience.swift */,
 				03088C5F1E8EDD2300BA03D2 /* ParseStudent.swift */,
+				031FFA8A1EA17E7F005B3CD6 /* ParseStudentModel.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				03088C5A1E8EAE0200BA03D2 /* GradientView.swift in Sources */,
 				03E7CDE31E8E55F10077541C /* AppDelegate.swift in Sources */,
 				03088C661E8EFF9800BA03D2 /* ParseConvenience.swift in Sources */,
+				031FFA8B1EA17E7F005B3CD6 /* ParseStudentModel.swift in Sources */,
 				03088C641E8EE00200BA03D2 /* ParseConstants.swift in Sources */,
 				03088C571E8E758700BA03D2 /* UdacityConvenience.swift in Sources */,
 				03088C6D1E91910100BA03D2 /* Helper.swift in Sources */,

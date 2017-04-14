@@ -12,16 +12,20 @@ extension ParseClient {
     
     // Get an array of Students from Parse
     
-    func getStudentsFromParse(completionHandlerForGetStudentsFromParse: @escaping (_ students: [Student]?, _ errorString: String?) -> Void) {
+    func getStudentsFromParse(limit: Int, completionHandlerForGetStudentsFromParse: @escaping (_ students: [Student]?, _ errorString: String?) -> Void) {
         
-        let _ = taskForGetMethod(Methods.StudentLocation, parameters: nil) { (JSONResult, error) in
+        let parameters = [
+            ParameterKeys.StudentLimit: 200
+        ] as [String: AnyObject]
+        
+        let _ = taskForGetMethod(Methods.StudentLocation, parameters: parameters) { (JSONResult, error) in
             
             if let error = error {
                 completionHandlerForGetStudentsFromParse(nil, "\(error)")
             } else {
                 if let results = JSONResult?.value(forKey: ParseClient.JSONResponseKeys.Results) as? [[String: AnyObject]] {
-                    let studentsFromResults = Student.studentsFromResults(results)
-                    self.students = studentsFromResults
+                    let studentsFromResults = ParseStudentModel.studentsFromResults(results)
+                    ParseStudentModel.students = studentsFromResults
                     completionHandlerForGetStudentsFromParse(studentsFromResults, "\(String(describing: error))")
                 } else {
                     completionHandlerForGetStudentsFromParse(nil, "Could not retrieve results")

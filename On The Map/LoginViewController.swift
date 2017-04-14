@@ -120,7 +120,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(error!)
                 DispatchQueue.main.async {
                     self.setUIEnabled(true)
-                    self.showAlert(errorMessage: "ERROR: \(String(describing: error))")
+                    self.showAlert(errorMessage: error!.localizedDescription)
                 }
                 return
             }
